@@ -14,6 +14,7 @@ void make_randnum(int check[],int rand_order[],int index, int count)
 	{int num;
 	do{num=rand()%(rand_max-rand_min+1)+rand_min;} 
 	while (check[num] == 1);//해당 테이블이 0이라면(=아직 기록되지 않았으면) 종료, 1이라면(=이미 이전에 만들어져 기록되었으면) 다시 난수 생성 
+	//rand_order에 중복된 난수가 담기지 않음
 	check[num] = 1;
 	rand_order[index] = num;
 	return make_randnum(check, rand_order, index + 1, count);}
