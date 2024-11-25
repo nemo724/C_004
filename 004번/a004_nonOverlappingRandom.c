@@ -7,7 +7,7 @@ int rand_min = 1;//생성되는 최저 값
 
 
 void make_randnum(int[],int[],int,int);//난수를 생성하고 결과를 테이블에 기록하는 함수
-
+void output_result(int[]);//생성된 난수를 순서대로 출력하는 함수
 
 void make_randnum(int check[],int rand_order[],int index, int count)
 {if (index<count)
@@ -21,6 +21,11 @@ else
 	{return; }
 }
 
+void output_result(int rand_order[])
+{for (int i=0;i<CNT;i++)
+	{printf("%3d ",rand_order[i]); }
+}
+
 
 
 int main(void)
@@ -29,8 +34,8 @@ int rand_order[CNT] = { 0 };//생성된 수들을 순서대로 담는 배열
 
 
 srand((unsigned int)time(NULL));
-make_randnum(check, rand_order, 0, 10);
-
+make_randnum(check, rand_order, 0, CNT);
+output_result(rand_order);
 
 
 
